@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.kabunx.data.config.MybatisAutoConfig,\
+  com.kabunx.data.config.RedisAutoConfig,\
+  com.kabunx.data.handler.FillMetaObjectHandler

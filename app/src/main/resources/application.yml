@@ -1,0 +1,21 @@
+server:
+  port: 7073
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 1  # 用于测试线程复用的安全问题
+
+spring:
+  application:
+    name: laborer
+  profiles:
+    active: dev
+  lifecycle:
+    timeout-per-shutdown-phase: 60s
+  task:
+    execution:
+      pool:
+        core-size: 4
+      shutdown:
+        await-termination: true
+        await-termination-period: 60s

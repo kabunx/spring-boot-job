@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.kabunx.core.config.WebMvcAutoConfig,\
+  com.kabunx.core.context.AppContext,\
+  com.kabunx.core.advice.JsonResponseBodyAdvice,\
+  com.kabunx.core.advice.GlobalExceptionAdvice,\
+  com.kabunx.core.aspect.ControllerLogAspect

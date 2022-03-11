@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "kabunx.mybatis",
+      "type": "com.kabunx.data.property.MybatisProperties",
+      "sourceType": "com.kabunx.data.property.MybatisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "kabunx.mybatis.created-column",
+      "type": "java.lang.String",
+      "sourceType": "com.kabunx.data.property.MybatisProperties"
+    },
+    {
+      "name": "kabunx.mybatis.timestamp",
+      "type": "java.lang.String",
+      "sourceType": "com.kabunx.data.property.MybatisProperties"
+    },
+    {
+      "name": "kabunx.mybatis.updated-column",
+      "type": "java.lang.String",
+      "sourceType": "com.kabunx.data.property.MybatisProperties"
+    }
+  ],
+  "hints": []
+}

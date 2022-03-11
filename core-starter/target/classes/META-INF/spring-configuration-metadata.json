@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "kabunx.global",
+      "type": "com.kabunx.core.property.GlobalProperties",
+      "sourceType": "com.kabunx.core.property.GlobalProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
