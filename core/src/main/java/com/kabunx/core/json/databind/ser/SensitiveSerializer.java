@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * 安全序列化
+ * 属性脱敏序列化
  */
 @NoArgsConstructor
 @AllArgsConstructor
@@ -56,22 +56,22 @@ public class SensitiveSerializer extends JsonSerializer<String> implements Conte
     }
 
     @Override
-    public JsonSerializer<?> createContextual(SerializerProvider serializerProvider, BeanProperty beanProperty) throws JsonMappingException {
+    public JsonSerializer<?> createContextual(SerializerProvider provider, BeanProperty property) throws JsonMappingException {
         // 为空直接跳过
-        if (beanProperty != null) {
+        if (property != null) {
             // 非 String 类直接跳过
-            if (Objects.equals(beanProperty.getType().getRawClass(), String.class)) {
-                SensitiveProperty annotation = beanProperty.getAnnotation(SensitiveProperty.class);
+            if (Objects.equals(property.getType().getRawClass(), String.class)) {
+                SensitiveProperty annotation = property.getAnnotation(SensitiveProperty.class);
                 if (annotation == null) {
-                    annotation = beanProperty.getContextAnnotation(SensitiveProperty.class);
+                    annotation = property.getContextAnnotation(SensitiveProperty.class);
                 }
                 if (annotation != null) {
                     // 如果能得到注解，就将注解的 value 传入 SensitiveSerializer
                     return new SensitiveSerializer(annotation.value());
                 }
             }
-            return serializerProvider.findValueSerializer(beanProperty.getType(), beanProperty);
+            return provider.findValueSerializer(property.getType(), property);
         }
-        return serializerProvider.findNullValueSerializer(null);
+        return provider.findNullValueSerializer(null);
     }
 }

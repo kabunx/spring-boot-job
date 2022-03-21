@@ -8,8 +8,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Confirmed(field = "password", twoField = "passwordTwo")
-public class UserRequest extends QueryRequest {
+@Confirmed(field = "password", confirmedField = "passwordConfirmation")
+public class UserQuery extends QueryRequest {
     private String name;
 
     @MobilePhone
@@ -17,5 +17,5 @@ public class UserRequest extends QueryRequest {
 
     private String password;
 
-    private String passwordTwo;
+    private String passwordConfirmation;
 }

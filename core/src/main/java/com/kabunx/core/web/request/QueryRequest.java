@@ -16,11 +16,11 @@ public class QueryRequest implements Serializable {
     /**
      * 每页获取的数据量
      */
-    private Integer size = 20;
+    private Integer pageSize = 20;
 
     /**
      * 排序参数
-     * &sort=id:desc,age:asc
+     * &sorts=id:desc,age:asc
      */
-    private String sort;
+    private String sorts;
 }

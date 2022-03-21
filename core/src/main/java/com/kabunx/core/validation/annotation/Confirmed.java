@@ -1,7 +1,6 @@
 package com.kabunx.core.validation.annotation;
 
-import com.kabunx.core.validation.validator.ConfirmedValidator;
-import org.springframework.core.annotation.AliasFor;
+import com.kabunx.core.validation.validator.ConfirmValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,7 +11,7 @@ import java.lang.annotation.*;
  */
 @Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {ConfirmedValidator.class})
+@Constraint(validatedBy = {ConfirmValidator.class})
 @Documented
 public @interface Confirmed {
 
@@ -23,7 +22,7 @@ public @interface Confirmed {
 
     String field();
 
-    String twoField();
+    String confirmedField();
 
     String message() default "两次数据不一致";
 

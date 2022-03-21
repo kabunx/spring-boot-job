@@ -4,6 +4,7 @@ import com.kabunx.app.mapstruct.UserMapper;
 import com.kabunx.app.model.Role;
 import com.kabunx.app.model.User;
 import com.kabunx.app.web.resource.UserResource;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,9 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(classes = LaborerApplication.class)
+@Slf4j
 public class MapperTest {
-    @Resource
-    UserMapper userMapper;
 
     @Test
     void testUserMapper() {
@@ -30,7 +30,8 @@ public class MapperTest {
         roles.add(role1);
         roles.add(role2);
         user.setRoles(roles);
-        UserResource resource = userMapper.map(user);
+        log.info("{}", user);
+        UserResource resource = UserMapper.MAPPER.map(user);
         System.out.println(resource);
     }
 }

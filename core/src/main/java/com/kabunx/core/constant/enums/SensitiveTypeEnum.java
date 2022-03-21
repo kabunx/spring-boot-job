@@ -1,6 +1,11 @@
 package com.kabunx.core.constant.enums;
 
 public enum SensitiveTypeEnum {
+
+    /**
+     * 通用的
+     */
+    GENERAL,
     /**
      * 中文名
      */
@@ -43,5 +48,5 @@ public enum SensitiveTypeEnum {
     /**
      * 密码
      */
-    PASSWORD
+    PASSWORD,
 }

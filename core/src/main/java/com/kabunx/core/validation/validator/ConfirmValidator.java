@@ -9,14 +9,14 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * 验证字段必须具有匹配字段
  */
-public class ConfirmedValidator implements ConstraintValidator<Confirmed, Object> {
+public class ConfirmValidator implements ConstraintValidator<Confirmed, Object> {
     private String fieldName;
     private String confirmedFieldName;
 
     @Override
     public void initialize(Confirmed constraintAnnotation) {
         fieldName = constraintAnnotation.field();
-        confirmedFieldName = constraintAnnotation.twoField();
+        confirmedFieldName = constraintAnnotation.confirmedField();
     }
 
     @Override

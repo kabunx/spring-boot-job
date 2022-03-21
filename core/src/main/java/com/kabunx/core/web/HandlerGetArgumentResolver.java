@@ -1,7 +1,7 @@
 package com.kabunx.core.web;
 
 import com.kabunx.core.util.JsonUtils;
-import com.kabunx.core.web.annotation.GetParam;
+import com.kabunx.core.web.annotation.RequestQuery;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.CollectionUtils;
@@ -18,8 +18,8 @@ import java.util.Map;
 public class HandlerGetArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        GetParam getParam = parameter.getParameterAnnotation(GetParam.class);
-        return getParam != null;
+        RequestQuery getRequest = parameter.getParameterAnnotation(RequestQuery.class);
+        return getRequest != null;
     }
 
     @Override
@@ -39,6 +39,6 @@ public class HandlerGetArgumentResolver implements HandlerMethodArgumentResolver
                 result.put(key, values[0]);
             }
         });
-        return JsonUtils.toBean(result, valueType);
+        return JsonUtils.toObject(result, valueType);
     }
 }

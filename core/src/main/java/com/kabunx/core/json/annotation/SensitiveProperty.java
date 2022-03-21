@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.kabunx.core.constant.enums.SensitiveTypeEnum;
 import com.kabunx.core.json.databind.ser.SensitiveSerializer;
+import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,8 +16,10 @@ import java.lang.annotation.Target;
 @JacksonAnnotationsInside
 @JsonSerialize(using = SensitiveSerializer.class)
 public @interface SensitiveProperty {
-    /**
-     * alias for type
-     */
-    SensitiveTypeEnum value();
+
+    @AliasFor("type")
+    SensitiveTypeEnum value() default SensitiveTypeEnum.GENERAL;
+
+    @AliasFor("value")
+    SensitiveTypeEnum type() default SensitiveTypeEnum.GENERAL;
 }

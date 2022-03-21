@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * json序列化与反序列工具类
+ */
 @Slf4j
 public class JsonUtils {
     /**
@@ -46,9 +49,9 @@ public class JsonUtils {
     /**
      * 将JSON字符串反序列化为对象
      */
-    public static <T> T toBean(String json, Class<T> clazz) throws JsonException {
+    public static <T> T toObject(String json, Class<T> tClass) throws JsonException {
         try {
-            return getObjectMapper().readValue(json, clazz);
+            return getObjectMapper().readValue(json, tClass);
         } catch (Exception e) {
             log.error("反序列化异常", e);
             throw new JsonException("反序列化异常");
@@ -58,7 +61,7 @@ public class JsonUtils {
     /**
      * 将JSON字符串转换为复杂类型的对象
      */
-    public static <T> T toBean(String json, TypeReference<T> typeReference) throws JsonException {
+    public static <T> T toObject(String json, TypeReference<T> typeReference) throws JsonException {
         try {
             return getObjectMapper().readValue(json, typeReference);
         } catch (Exception e) {
@@ -70,16 +73,16 @@ public class JsonUtils {
     /**
      * 将对象序列化后再反序列化为目标对象
      */
-    public static <T> T toBean(Object object, Class<T> clazz) throws JsonException {
-        return toBean(stringify(object), clazz);
+    public static <T> T toObject(Object object, Class<T> tClass) throws JsonException {
+        return toObject(stringify(object), tClass);
     }
 
     /**
      * 将JSON字符串转换为list对象
      */
-    public static <T> List<T> toList(String json, Class<T> clazz) throws JsonException {
+    public static <T> List<T> toList(String json, Class<T> tClass) throws JsonException {
         try {
-            JavaType javaType = getTypeFactory().constructParametricType(List.class, clazz);
+            JavaType javaType = getTypeFactory().constructParametricType(List.class, tClass);
             return getObjectMapper().readValue(json, javaType);
         } catch (Exception e) {
             log.error("List反序列化异常", e);

@@ -10,6 +10,9 @@ import java.util.Base64;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 加密&解密工具类
+ */
 @Slf4j
 public class EncryptUtils {
     /**

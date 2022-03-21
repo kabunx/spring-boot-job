@@ -1,5 +1,8 @@
 package com.kabunx.core.util;
 
+/**
+ * 脱敏工具类
+ */
 public class SensitiveUtils {
     /**
      * 【中文姓名】只显示第一个汉字，其他隐藏为2个星号<例子：李**>
@@ -103,15 +106,7 @@ public class SensitiveUtils {
         if (str == null) {
             return true;
         }
-        final int strLen = str.length();
-        if (strLen == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if (!Character.isWhitespace(str.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
+        final int strLen = str.trim().length();
+        return strLen == 0;
     }
 }

@@ -3,7 +3,7 @@ package com.kabunx.core.util;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * HTTP 工具类
+ * HTTP请求工具类
  */
 public class HttpUtils {
     /**

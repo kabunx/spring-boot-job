@@ -11,10 +11,8 @@ public class UserResource {
 
     private Integer id;
 
-    @SensitiveProperty(SensitiveTypeEnum.CHINESE_NAME)
     private String name;
 
-    @SensitiveProperty(SensitiveTypeEnum.MOBILE_PHONE)
     private String mobile;
 
     private String email;
